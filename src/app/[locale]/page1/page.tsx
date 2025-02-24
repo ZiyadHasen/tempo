@@ -1,14 +1,12 @@
 import Footer from "@/components/Footer";
 import TopNav from "@/components/TopNav";
-import InstructionsPage from "./InstructionsPage";
+import InstructionsPage1 from "./InstructionsPage";
 
 const page = () => {
   return (
     <section className="">
       <TopNav />
-
-      <InstructionsPage />
-
+      <InstructionsPage1 />
       <Footer />
     </section>
   );

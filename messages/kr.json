@@ -1,0 +1,109 @@
+{
+  "Login": {
+    "title": "관리자 로그인",
+    "subtitle": "설정을 선택하고 사용 약관에 동의하여 계속하십시오",
+    "description": "본 웹 사이트는 의료 전문가 전용 사이트입니다.",
+    "languageLabel": "언어",
+    "termsLink": "이용약관",
+    "termsLabel": "에 동의합니다",
+    "termsError": "이용약관을 클릭해주세요",
+    "loginButton": "로그인",
+    "modalTitle": "이용약관",
+    "modalContent": "웹 사이트는 ROKIT Healthcare 의료 기기의 다양 한 제품에 대한 사용법(IFU)과 기타 관련 정보를 제공합니다. 본 웹 사이트는 의료 전문가 전용 사이트입니다. 경고: 귀하는 전 세계적으로 ROKIT Healthcare와 공인 대리점(이하 회사 )에게만 그 이용이 허용된 비공개 웹 사이트에 접속하려고 합니다. 이 사이트는 의료 전문가를 대상으로 업무용으로만 제공됩니다. 회사는 웹 사이트와 그 콘텐츠를 실제로 무단으로 접속, 이용 또는 수정하거나 그러한 시 도를 하는 행위를 엄격하게 금지합니다. 무단 이용자 및/또는 무단 이용 시는 국내외 관련 법에 따라 형사 및/또는 민사상의 처벌을 받을 수 있습니다. 본 웹 사이트의 이용은 관리 및 보안상의 이유로 모니터링 및 기록될 수 있습니다. 이러한 모니터링 및/또는 기록을 통해 범죄 활동의 발생 가능성을 보여주는 증거가 드러난 경우, 회사는 해당 활동에 대한 모니터링된 증거를 법 집행 공무원에게 제공할 수 있습니다. 또한 귀하는 이용 약관 / 법적 공지'에 있는 추가 약관에 동의하며, 동 약관은 웹 사이트 페이지의 우측 하단에 있는 '법적 공지' 링크를 동해 접속할 수 있습니다.ROKIT Healthcare, Inc. 2018(달리 언급하는 경우는 예외). 판권 소유",
+    "modalClose": "닫기"
+  },
+
+  "FilterNavigation": {
+    "tabs": {
+      "all": "전체",
+      "skin": "피부",
+      "cartilage": "연골",
+      "kidney": "신장"
+    },
+    "sortLabel": "정렬",
+    "sortOptions": {
+      "az": "알파벳 순 (a-z)",
+      "za": "알파벳 역순 (z-a)",
+      "newest": "최신순",
+      "oldest": "오래된순"
+    },
+    "categoryLabel": "카테고리",
+    "categoryOptions": {
+      "default": "제품명",
+      "cat1": "카테고리 1",
+      "cat2": "카테고리 2"
+    },
+    "languageLabel": "언어",
+    "languageOptions": {
+      "ko": "한국어",
+      "en": "영어"
+    },
+    "countryLabel": "국가",
+    "countryOptions": {
+      "kr": "한국",
+      "us": "미국",
+      "jp": "일본"
+    }
+  },
+  "TopNav": {
+    "logoAlt": "Company logo"
+  },
+  "UserManualList": {
+    "download": "다운로드",
+    "firstPage": "첫 페이지",
+    "previousPage": "이전 페이지",
+    "nextPage": "다음 페이지",
+    "lastPage": "마지막 페이지",
+    "terms": "알림 수신 거부",
+    "submitButton": "제출",
+    "invalidEmail": "이메일 주소 {email} 형식이 올바르지 않습니다. user@example.com 형식을 사용하세요.",
+    "termsModalText": "당사는 다운로드한 전자 사용 지침(e-IFU)과 관련된 업데이트 또는 시정 조치를 알려야 하는 법적 의무를 준수하기 위해 귀하의 이메일 주소를 사용할 것입니다. 자세한 내용은 개인정보 보호정책을 참조하십시오. 이메일 주소를 입력하지 않으면 업데이트 또는 수정조치 수신을 거부하게 됩니다.",
+    "termsModallink": "문서 보기",
+    "emailLabel": "이메일 ID 입력"
+  },
+  "Footer": {
+    "logoAlt": "회사 로고",
+    "addressKR": "서울특별시 | 강남구 | 테헤란로 10길 | 12층 | (06234)",
+    "addressEN": "12F, 10 Teheran-ro, Gangnam-gu, Seoul, South Korea | 06234",
+    "tel": "TEL: 1234-5678",
+    "termsAndPrivacy": "이용약관 | 개인정보 보호정책",
+    "copyright": "COPYRIGHT © ROKIT HEALTHCARE, INC.",
+    "rightsReserved": "모든 권리 보유"
+  },
+  "InstructionsPage1": {
+    "pageTitle": "사용 설명서",
+    "tabs": {
+      "latest": "최신 IFU",
+      "old": "(구) IFU"
+    },
+    "search": {
+      "label": "모델명 검색",
+      "placeholder": "모델명을 검색하세요"
+    },
+    "errorMessage": "제품 사용설명서를 찾으실 수 없거나 원하지 않는 경우, info@rokit.co.kr으로 문의해 주세요.",
+    "content": {
+      "section1": {
+        "paragraph1": "본 웹사이트는 ROKIT Healthcare에서 제조 및 공급하는 제품의 사용자 설명서를 제공합니다.",
+        "paragraph2": "본 웹사이트는 ROKIT Healthcare에서 제조 및 공급하는 제품의 사용자 설명서를 제공합니다. 원하시는 사용자 설명서를 검색한 후, PDF 형식으로 다운로드할 수 있습니다. PDF 리더가 설치되지 않았을 경우, 해당 링크를 클릭하시면 PDF 리더를 다운로드 받으실 수 있습니다."
+      },
+      "section2": {
+        "paragraph1": "인쇄된 사용자 설명서를 요청하시려면 info@rokit.co.kr으로 문의하십시오. 사용자 설명서는 언제든지 업데이트될 수 있으므로 최신 버전을 보장하려면 웹사이트에서 검색하는 것이 좋습니다. 인쇄된 버전을 원하신다면 info@rokit.co.kr으로 문의해 주세요. 사용자 설명서는 언제든지 업데이트될 수 있으므로, 최신 버전을 원하시면 웹사이트에서 검색하십시오."
+      }
+    }
+  },
+
+  "PrivacyPolicy": {
+    "pageTitle": "사이트 개인정보 보호",
+    "section1": {
+      "heading": "이용 약관 ROKIT",
+      "content": "Healthcare eIFU 웹사이트는 ROKIT Healthcare에서 제공하는 다양한 의료 기기의 사용법(IFU) 및 기타 관련 정보를 제공합니다."
+    },
+    "section2": {
+      "heading": "경고",
+      "content": "귀하는 전 세계적으로 ROKIT Healthcare와 공인 파트너(이하 '회사')에게만 이용이 허용된 비공개 웹사이트에 접속하고 있습니다. 본 웹사이트는 의료 전문가를 대상으로 업무용으로만 제공됩니다."
+    },
+    "section3": {
+      "content": "회사는 웹사이트와 그 콘텐츠에 대한 무단 접속, 이용, 수정 또는 그러한 시도를 엄격히 금지합니다. 무단 이용 시 국내외 관련 법에 따라 형사 및/또는 민사상의 처벌을 받을 수 있습니다. 본 웹사이트의 이용은 보안 및 운영 관리 목적으로 모니터링 및 기록될 수 있습니다. 법적 활동이 감지되는 경우, 회사는 해당 증거를 법 집행 기관에 제공할 수 있습니다. 또한 귀하는 ‘이용 약관’ 및 하단 ‘법적 공지’에 있는 추가 약관에 동의하는 것으로 간주됩니다. © ROKIT Healthcare, Inc. 2025 판권 소유."
+    }
+  }
+}

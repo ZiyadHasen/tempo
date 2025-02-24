@@ -11,7 +11,9 @@
   "dependencies": {
     "@heroui/react": "^2.7.2",
     "framer-motion": "^12.4.7",
+    "i18next": "^24.2.2",
     "next": "^15.1.7",
+    "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0"

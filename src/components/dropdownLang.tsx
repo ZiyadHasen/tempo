@@ -2,17 +2,30 @@
 
 import { BiGlobe, BiChevronDown } from "react-icons/bi";
 import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function LanguageSelector() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("en");
 
   const languages = [
     { code: "en", label: "English", region: "United States" },
-    { code: "ko", label: "한국어", region: "대한민국" },
+    { code: "kr", label: "한국어", region: "대한민국" },
   ];
 
   const currentLanguage = languages.find((lang) => lang.code === selected);
+
+  const handleLanguageChange = (code: string) => {
+    setSelected(code);
+    setIsOpen(false);
+    // Assuming the locale is the first segment of the URL, update it:
+    const segments = pathname.split("/");
+    segments[1] = code;
+    const newPath = segments.join("/");
+    router.push(newPath);
+  };
 
   return (
     <div className="relative w-full max-w-[280px] sm:max-w-[320px]">
@@ -42,10 +55,7 @@ export default function LanguageSelector() {
           {languages.map((language) => (
             <button
               key={language.code}
-              onClick={() => {
-                setSelected(language.code);
-                setIsOpen(false);
-              }}
+              onClick={() => handleLanguageChange(language.code)}
               className="flex w-full items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base text-gray-600 transition-colors hover:bg-gray-100"
             >
               <BiGlobe className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />

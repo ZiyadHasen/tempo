@@ -1,0 +1,109 @@
+{
+  "Login": {
+    "title": "Admin Login",
+    "subtitle": "Select settings and agree to the terms to continue",
+    "description": "This website is for medical professionals only.",
+    "languageLabel": "Language",
+    "termsLink": "Terms of Service",
+    "termsLabel": "I agree to the",
+    "termsError": "Please agree to the Terms of Service",
+    "loginButton": "Login",
+    "modalTitle": "Terms of Service",
+    "modalContent": "elFU website provides instructions for use (IFU) and other related information about various products of ROKIT Healthcare medical devices. This website is exclusively intended for healthcare professionals. Warning: You are attempting to access a private website that is authorized for use only by ROKIT Healthcare and its certified distributors (hereafter referred to as the Company) worldwide. This site is provided solely for business purposes to healthcare professionals.\n\nThe Company strictly prohibits any unauthorized access, use, or modification of the website and its content, as well as any attempt to do so. Unauthorized users and/or those who engage in unauthorized use may face criminal and/or civil penalties under relevant domestic and international laws. Use of this website may be monitored and recorded for management and security reasons. If monitoring and/or recording reveal evidence suggesting the possibility of criminal activity, the Company may provide such monitored evidence to law enforcement officials. Additionally, by using this website, you agree to additional terms found in the 'Terms of Use / Legal Notice,' which can be accessed via the 'Legal Notice' link at the bottom right of the website page.ROKIT Healthcare, Inc. 2018 (except where otherwise noted). All rights reserved.",
+    "modalClose": "Close"
+  },
+  "FilterNavigation": {
+    "tabs": {
+      "all": "All",
+      "skin": "Skin",
+      "cartilage": "Cartilage",
+      "kidney": "Kidney"
+    },
+    "sortLabel": "Sort By",
+    "sortOptions": {
+      "az": "Alphabetical (a-z)",
+      "za": "Alphabetical (z-a)",
+      "newest": "Newest",
+      "oldest": "Oldest"
+    },
+    "categoryLabel": "Category",
+    "categoryOptions": {
+      "default": "Product Name",
+      "cat1": "Category 1",
+      "cat2": "Category 2"
+    },
+    "languageLabel": "Language",
+    "languageOptions": {
+      "ko": "Korean",
+      "en": "English"
+    },
+    "countryLabel": "Country",
+    "countryOptions": {
+      "kr": "Korea",
+      "us": "United States",
+      "jp": "Japan"
+    }
+  },
+  "TopNav": {
+    "logoAlt": "Company logo"
+  },
+  "UserManualList": {
+    "download": "Download",
+    "firstPage": "First page",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "lastPage": "Last page",
+    "terms": "Opt out of receiving notifications",
+    "submitButton": "Submit",
+    "invalidEmail": "The email address {email} is not valid. Use the format user@example.com.",
+    "termsModalText": "We will use your email address to notify you of any updates or corrective actions related to the downloaded electronic instructions (e-IFU) in compliance with legal obligations. Please refer to our privacy policy. If you do not enter an email address, you will not receive any updates or corrective actions.",
+    "termsModallink": " View Documentation",
+
+    "emailLabel": "Enter Email ID"
+  },
+  "Footer": {
+    "logoAlt": "Company logo",
+    "addressKR": "서울특별시 | 강남구 | 테헤란로 10길 | 12층 | (06234)",
+    "addressEN": "12F, 10 Teheran-ro, Gangnam-gu, Seoul, South Korea | 06234",
+    "tel": "TEL: 1234-5678",
+    "termsAndPrivacy": "Terms of Service | Privacy Policy",
+    "copyright": "COPYRIGHT © ROKIT HEALTHCARE, INC.",
+    "rightsReserved": "ALL RIGHTS RESERVED"
+  },
+  "InstructionsPage1": {
+    "pageTitle": "Instructions for Use",
+    "tabs": {
+      "latest": "Latest IFU",
+      "old": "Old IFU"
+    },
+    "search": {
+      "label": "Search by Model",
+      "placeholder": "Search for a model"
+    },
+    "errorMessage": "If you cannot find the user manual or do not want it, please contact info@rokit.co.kr.",
+    "content": {
+      "section1": {
+        "paragraph1": "Our website provides user manuals for products manufactured and supplied by ROKIT Healthcare.",
+        "paragraph2": "This website provides user manuals for products manufactured and supplied by ROKIT Healthcare. After searching for the desired user manual, you can download it in PDF format. If a PDF reader is not installed, you can download one by clicking on this link"
+      },
+      "section2": {
+        "paragraph1": "If you would like to request a printed user manual, please contact us at info@rokit.co.kr. Please note that user manuals may be updated at any time. To ensure you have the latest version, please search on the website. If you prefer a printed version, please contact info@rokit.co.kr. User manuals may be updated at any time, so it's best to search for the latest version on our website."
+      }
+    }
+  },
+
+  "PrivacyPolicy": {
+    "pageTitle": "Site Privacy Policy",
+    "section1": {
+      "heading": "Terms of Use ROKIT",
+      "content": "Healthcare eIFU website provides instructions (IFU) and related information for various medical devices supplied by ROKIT Healthcare."
+    },
+    "section2": {
+      "heading": "Warning",
+      "content": "You are accessing a private website exclusively available to ROKIT Healthcare and its authorized partners worldwide. This website is provided solely for professionals."
+    },
+    "section3": {
+      "content": "The company strictly prohibits unauthorized access, use, modification, or attempts to do so to the website and its content. Unauthorized use may be subject to criminal and/or civil penalties under applicable laws. The use of this website may be monitored and recorded for security and operational management purposes. If any legal activity is detected, the company may provide the evidence to law enforcement agencies. Additionally, you agree to the 'Terms of Use' and additional terms in the 'Legal Notice' at the bottom of the page. © ROKIT Healthcare, Inc. 2025. All rights reserved."
+    }
+  }
+}

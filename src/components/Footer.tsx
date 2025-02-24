@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="w-full bg-black text-white py-8 md:py-12 px-4 md:px-8">
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-4 md:gap-6">
@@ -8,28 +13,28 @@ export default function Footer() {
         <div className="w-full md:w-1/4 flex items-center justify-center mb-4 md:mb-0">
           <Image
             src="/assets/headerlogo.svg"
-            alt="Company logo"
+            alt={t("logoAlt")}
             height={20}
             width={220}
             className="w-40 md:w-52"
             loading="eager"
             priority
-            aria-label="Company logo"
+            aria-label={t("logoAlt")}
           />
         </div>
 
         {/* Address */}
         <div className="w-full md:w-1/2 text-center md:text-left space-y-2 md:space-y-0">
           <p className="text-xs md:text-sm font-thin leading-5">
-            서울특별시 | 강남구 | 테헤란로 10길 | 12층 | (06234)
+            {t("addressKR")}
             <span className="font-semibold block md:inline md:ml-2">
-              TEL: 1234-5678
+              {t("tel")}
             </span>
           </p>
           <p className="text-xs md:text-sm font-thin leading-5">
-            12F, 10 Teheran-ro, Gangnam-gu, Seoul, South Korea | 06234
+            {t("addressEN")}
             <span className="font-semibold block md:inline md:ml-2">
-              TEL: 1234-5678
+              {t("tel")}
             </span>
           </p>
         </div>
@@ -37,11 +42,11 @@ export default function Footer() {
         {/* Copyright */}
         <div className="w-full md:w-1/4 text-center md:text-left mt-4 md:mt-0">
           <p className="text-xs md:text-sm font-semibold mb-2">
-            이용약관 | 개인정보 보호정책
+            {t("termsAndPrivacy")}
           </p>
           <p className="text-xs md:text-sm font-thin">
-            COPYRIGHT © ROKIT HEALTHCARE, INC.
-            <br className="md:hidden" /> ALL RIGHTS RESERVED
+            {t("copyright")}
+            <br className="md:hidden" /> {t("rightsReserved")}
           </p>
         </div>
       </div>
