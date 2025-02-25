@@ -59,7 +59,8 @@
     "invalidEmail": "이메일 주소 {email} 형식이 올바르지 않습니다. user@example.com 형식을 사용하세요.",
     "termsModalText": "당사는 다운로드한 전자 사용 지침(e-IFU)과 관련된 업데이트 또는 시정 조치를 알려야 하는 법적 의무를 준수하기 위해 귀하의 이메일 주소를 사용할 것입니다. 자세한 내용은 개인정보 보호정책을 참조하십시오. 이메일 주소를 입력하지 않으면 업데이트 또는 수정조치 수신을 거부하게 됩니다.",
     "termsModallink": "문서 보기",
-    "emailLabel": "이메일 ID 입력"
+    "emailLabel": "이메일 ID 입력",
+    "modalClose": "제출"
   },
   "Footer": {
     "logoAlt": "회사 로고",

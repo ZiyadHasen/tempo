@@ -1,24 +1,16 @@
 "use client";
-import {
-  Button,
-  Checkbox,
-  Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-} from "@heroui/react";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { BiX } from "react-icons/bi";
+import { FaCheck } from "react-icons/fa";
 import {
-  HiDownload,
   HiChevronDoubleLeft,
+  HiChevronDoubleRight,
   HiChevronLeft,
   HiChevronRight,
-  HiChevronDoubleRight,
+  HiDownload,
 } from "react-icons/hi";
-import { BiX } from "react-icons/bi";
-import Link from "next/link";
 
 const manuals = [
   { id: 1, title: "ARK KIT User Manual v1.0", downloadUrl: "#" },
@@ -49,6 +41,15 @@ export default function UserManualList() {
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState(false);
 
+  // Prevent background scrolling when the modal is open
+  useEffect(() => {
+    if (showTerms) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [showTerms]);
+
   // Corrected handleSubmit using 'agreed' and 'setError'
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,14 +68,15 @@ export default function UserManualList() {
           {visibleManuals.map((manual) => (
             <div
               key={manual.id}
-              className="flex items-center bg-white text-black justify-between py-5 border-b-[0.5px] border-[#00000080]"
+              className="flex items-center text-black bg-white  justify-between py-5 border-b-[0.5px] border-[#00000080]"
             >
-              <h2 className="text-2xl font-semibold text-black flex-1">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-black flex-1">
                 {manual.title}
               </h2>
-              <Button
-                className="flex items-center gap-2 min-w-[120px] h-[52px] border-[2px] border-black rounded-md px-6 py-4"
-                onPress={() => {
+
+              <button
+                className="flex items-center justify-center gap-2 w-full max-w-[200px] sm:min-w-[120px] h-[52px] sm:h-[44px] border-2 border-black rounded-md px-4 py-2 text-black"
+                onClick={() => {
                   setShowTerms(true);
                   const link = document.createElement("a");
                   link.href = "/file.docx";
@@ -83,11 +85,12 @@ export default function UserManualList() {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                variant="bordered"
               >
-                <HiDownload className="w-7 h-7" />
-                <span className="font-bold text-2xl">{t("download")}</span>
-              </Button>
+                <HiDownload className="w-6 h-6 sm:w-5 sm:h-5" />
+                <span className="font-bold text-xl sm:text-lg">
+                  {t("download")}
+                </span>
+              </button>
             </div>
           ))}
         </div>
@@ -149,34 +152,37 @@ export default function UserManualList() {
         </div>
       </div>
 
-      <Modal
-        isOpen={showTerms}
-        size="3xl"
-        onClose={() => setShowTerms(false)}
-        hideCloseButton={true}
-      >
-        <ModalContent className="relative mx-auto my-auto px-4 pt-2 sm:px-10 sm:pt-4">
-          {(onClose) => (
-            <form
-              onSubmit={(e) => {
-                handleSubmit(e);
-                if (agreed) {
-                  onClose();
-                }
-              }}
-            >
-              <div
-                className="absolute top-4 right-4 cursor-pointer"
-                onClick={onClose}
+      {/* Modal */}
+      {showTerms && (
+        <div className="fixed text-black bg-white inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
+            onClick={() => setShowTerms(false)}
+          ></div>
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-lg px-4 sm:px-8 shadow-lg w-full max-w-md sm:max-w-3xl">
+            {/* Content */}
+            <div className="p-4 sm:p-6 lg:p-10 overflow-y-auto h-full">
+              <form
+                onSubmit={(e) => {
+                  handleSubmit(e);
+                  if (agreed) {
+                    setShowTerms(false);
+                  }
+                }}
               >
-                <BiX className="text-3xl sm:text-4xl" />
-              </div>
+                <div
+                  className="absolute top-4 right-4 cursor-pointer"
+                  onClick={() => setShowTerms(false)}
+                >
+                  <BiX className="text-3xl sm:text-4xl" />
+                </div>
+                <p className="text-xl mt-8 text-black">{t("termsModalText")}</p>
 
-              <ModalBody className="text-sm sm:text-lg mt-12">
-                {t("termsModalText")}
                 <Link
                   href="/page2"
-                  className="text-blue-600 underline cursor-pointer"
+                  className="text-blue-600 text-xl font-medium underline cursor-pointer"
                 >
                   {t("termsModallink")}
                 </Link>
@@ -186,31 +192,44 @@ export default function UserManualList() {
                       {t("emailLabel")}
                       <span className="text-red-500 ml-0.5">*</span>
                     </p>
-                    <Input
+                    <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full"
-                      variant="bordered"
+                      className="w-full bg-white border border-black text-sm px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                     />
                   </div>
 
                   <div className="flex items-center my-6 space-x-2">
-                    <Checkbox
-                      id="terms"
-                      size="lg"
-                      checked={agreed}
-                      onChange={(e) => {
-                        setAgreed(e.target.checked);
-                        setError(false);
-                      }}
-                    />
-
                     <label
                       htmlFor="terms"
-                      className="text-xl sm:text-xl font-bold"
+                      className="flex items-center space-x-2 cursor-pointer"
                     >
-                      {t("terms")}
+                      <div className="relative">
+                        <input
+                          id="terms"
+                          type="checkbox"
+                          checked={agreed}
+                          onChange={(e) => {
+                            setAgreed(e.target.checked);
+                            setError(false);
+                          }}
+                          className="absolute w-0 h-0 opacity-0"
+                        />
+                        <div
+                          className={`w-6 h-6 border-2 border-blue-500 rounded-sm flex items-center justify-center ${
+                            agreed ? "bg-blue-500" : "bg-white"
+                          }`}
+                        >
+                          {agreed && (
+                            <FaCheck className="text-white" size={12} />
+                          )}
+                        </div>
+                      </div>
+
+                      <span className="text-xl sm:text-2xl font-bold">
+                        {t("terms")}
+                      </span>
                     </label>
                   </div>
 
@@ -220,20 +239,23 @@ export default function UserManualList() {
                     </div>
                   )}
                 </div>
-              </ModalBody>
-              <ModalFooter className="flex justify-center my-8">
-                <Button
-                  // onPress={}
-                  type="submit"
-                  className="bg-[#EE8000] w-40 text-sm sm:text-xl text-white font-bold h-10 sm:h-12 rounded-md"
-                >
-                  {t("submitButton")}
-                </Button>
-              </ModalFooter>
-            </form>
-          )}
-        </ModalContent>
-      </Modal>
+                <div className="flex items-center justify-center mt-4 sm:mt-6 lg:mt-8">
+                  <button
+                    onClick={() => {
+                      if (agreed !== true) {
+                        setError(true);
+                      }
+                    }}
+                    className="bg-[#EE8000] w-full sm:w-40 text-xs sm:text-sm md:text-base lg:text-xl text-white font-bold py-2 sm:py-3 rounded-lg"
+                  >
+                    {t("modalClose")}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

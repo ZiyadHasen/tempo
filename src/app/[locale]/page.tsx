@@ -1,22 +1,13 @@
 "use client";
-import { useTranslations } from "next-intl";
 import logo from "@/assets/logo.svg";
 import TopNav from "@/components/TopNav";
-import {
-  Button,
-  Checkbox,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from "@heroui/react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react"; // Added useEffect here
 import { BiX } from "react-icons/bi";
-import { FaChevronDown } from "react-icons/fa";
-import { useRouter, usePathname } from "next/navigation";
+import { FaCheck, FaChevronDown } from "react-icons/fa";
 
 export default function LoginPage() {
   const t = useTranslations("Login");
@@ -44,6 +35,15 @@ export default function LoginPage() {
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+
+  // Prevent background scroll when the modal is open
+  useEffect(() => {
+    if (showTerms) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [showTerms]);
 
   const handleLanguageChange = (code: string) => {
     setSelected(code);
@@ -130,29 +130,40 @@ export default function LoginPage() {
 
               {/* Terms Checkbox Section */}
               <div className="flex items-center my-6 space-x-2">
-                <Checkbox
-                  id="terms"
-                  size="lg"
-                  checked={agreed}
-                  onChange={(e) => {
-                    setAgreed(e.target.checked);
-                    setError(false);
-                  }}
-                />
-                <div className="grid gap-1.5 leading-none">
-                  <label
-                    htmlFor="terms"
-                    className="text-xl sm:text-2xl font-bold"
-                  >
-                    <button
-                      type="button"
-                      className="text-[#FF6B00] hover:underline mr-2"
+                <label
+                  htmlFor="terms"
+                  className="flex items-center space-x-2 cursor-pointer"
+                >
+                  <div className="relative">
+                    <input
+                      id="terms"
+                      type="checkbox"
+                      checked={agreed}
+                      onChange={(e) => {
+                        setAgreed(e.target.checked);
+                        setError(false);
+                      }}
+                      className="absolute w-0 h-0 opacity-0"
+                    />
+                    <div
+                      className={`w-6 h-6 border-2 border-blue-500 rounded-sm flex items-center justify-center ${
+                        agreed ? "bg-blue-500" : "bg-white"
+                      }`}
                     >
-                      {t("termsLink")}
-                    </button>
+                      {agreed && <FaCheck className="text-white" size={12} />}
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="text-[#FF6B00] sm:text-2xl font-bold hover:underline mr-2"
+                  >
+                    {t("termsLink")}
+                  </button>
+                  <span className="text-xl sm:text-2xl font-bold">
                     {t("termsLabel")}
-                  </label>
-                </div>
+                  </span>
+                </label>
               </div>
 
               {error && (
@@ -182,59 +193,43 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* modal */}
-      <div className="fixed left-0 top-0 z-50 hidden h-screen w-screen flex-col items-center justify-center md:flex">
-        <div
-          className="absolute inset-0 z-0 overflow-y-auto bg-black bg-opacity-30 backdrop-blur-sm"
-          // onClick={onClose}
-        />
-        <div className="absolute z-10 md:px-4">
-          <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform overflow-y-auto rounded-lg bg-white">
-            <div
-              className="absolute top-4 right-4 cursor-pointer"
-              // onClick={onClose}
+      {/* Modal */}
+      {showTerms && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
+            onClick={() => setShowTerms(false)}
+          ></div>
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-lg px-4 sm:px-8 shadow-lg w-full max-w-md sm:max-w-3xl">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowTerms(false)}
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
             >
-              <BiX className="text-3xl sm:text-4xl" />
-            </div>
-            middle
-          </div>
-        </div>
-      </div>
-
-      {/* 
-      <Modal
-        isOpen={showTerms}
-        size="3xl"
-        onClose={() => setShowTerms(false)}
-        hideCloseButton={true}
-      >
-        <ModalContent className="relative mx-auto my-auto px-4 pt-2 sm:px-10 sm:pt-4">
-          {(onClose) => (
-            <>
-              <div
-                className="absolute top-4 right-4 cursor-pointer"
-                onClick={onClose}
-              >
-                <BiX className="text-3xl sm:text-4xl" />
-              </div>
-              <ModalHeader className="flex flex-col gap-1 text-lg sm:text-2xl font-bold">
+              <BiX className="text-2xl sm:text-3xl" />
+            </button>
+            {/* Content */}
+            <div className="p-4 sm:p-6 lg:p-10 overflow-y-auto h-full">
+              <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-4 sm:mb-6">
                 {t("modalTitle")}
-              </ModalHeader>
-              <ModalBody className="text-sm sm:text-lg">
+              </h2>
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6">
                 {t("modalContent")}
-              </ModalBody>
-              <ModalFooter>
-                <Button
-                  className="bg-[#EE8000] w-40 text-sm sm:text-xl text-white font-bold h-10 sm:h-12 rounded-md"
-                  onPress={onClose}
+              </p>
+              <div className="flex items-center justify-end mt-4 sm:mt-6 lg:mt-8">
+                <button
+                  onClick={() => setShowTerms(false)}
+                  className="bg-[#EE8000] w-full sm:w-40 text-xs sm:text-sm md:text-base lg:text-xl text-white font-bold py-2 sm:py-3 rounded-lg"
                 >
                   {t("modalClose")}
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal> */}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

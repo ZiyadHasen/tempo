@@ -59,7 +59,8 @@
     "termsModalText": "We will use your email address to notify you of any updates or corrective actions related to the downloaded electronic instructions (e-IFU) in compliance with legal obligations. Please refer to our privacy policy. If you do not enter an email address, you will not receive any updates or corrective actions.",
     "termsModallink": " View Documentation",
 
-    "emailLabel": "Enter Email ID"
+    "emailLabel": "Enter Email ID",
+    "modalClose": "Submit"
   },
   "Footer": {
     "logoAlt": "Company logo",
