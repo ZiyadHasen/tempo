@@ -75,7 +75,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-white text-black">
+    <div className="b text-black">
       <TopNav />
       <div className="flex items-center justify-center min-h-screen bg-white px-4">
         <div className="w-full max-w-xl bg-white p-8">
@@ -182,6 +182,26 @@ export default function LoginPage() {
         </div>
       </div>
 
+      {/* modal */}
+      <div className="fixed left-0 top-0 z-50 hidden h-screen w-screen flex-col items-center justify-center md:flex">
+        <div
+          className="absolute inset-0 z-0 overflow-y-auto bg-black bg-opacity-30 backdrop-blur-sm"
+          // onClick={onClose}
+        />
+        <div className="absolute z-10 md:px-4">
+          <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform overflow-y-auto rounded-lg bg-white">
+            <div
+              className="absolute top-4 right-4 cursor-pointer"
+              // onClick={onClose}
+            >
+              <BiX className="text-3xl sm:text-4xl" />
+            </div>
+            middle
+          </div>
+        </div>
+      </div>
+
+      {/* 
       <Modal
         isOpen={showTerms}
         size="3xl"
@@ -214,7 +234,7 @@ export default function LoginPage() {
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
