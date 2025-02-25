@@ -4,6 +4,7 @@ import TopNav from "@/components/TopNav";
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Page = () => {
   const t = useTranslations("PrivacyPolicy");
@@ -15,12 +16,15 @@ const Page = () => {
       <div className="mx-4 bg-white text-black md:mx-24 p-4 md:p-6 font-sans">
         {/* Header with Back Arrow */}
         <div className="relative flex items-center justify-center">
-          <button
-            // onClick={onOpen}
-            className="absolute left-0 sm:left-4 hover:opacity-70 transition-opacity"
-          >
-            <IoIosArrowBack className="w-8 h-8 md:w-12 md:h-12" />
-          </button>
+          <Link href="/page1">
+            <button
+              // onClick={onOpen}
+              className="absolute left-0 sm:left-4 hover:opacity-70 transition-opacity"
+            >
+              <IoIosArrowBack className="w-8 h-8 md:w-12 md:h-12" />
+            </button>
+          </Link>
+
           <h1 className="text-3xl md:text-5xl text-black font-bold text-center my-6 md:my-12">
             {t("pageTitle")}
           </h1>

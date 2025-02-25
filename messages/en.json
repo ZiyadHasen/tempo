@@ -55,7 +55,7 @@
     "lastPage": "Last page",
     "terms": "Opt out of receiving notifications",
     "submitButton": "Submit",
-    "invalidEmail": "The email address {email} is not valid. Use the format user@example.com.",
+    "invalidEmail": "The email address {email} is not valid. ",
     "termsModalText": "We will use your email address to notify you of any updates or corrective actions related to the downloaded electronic instructions (e-IFU) in compliance with legal obligations. Please refer to our privacy policy. If you do not enter an email address, you will not receive any updates or corrective actions.",
     "termsModallink": " View Documentation",
 

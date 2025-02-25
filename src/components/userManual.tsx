@@ -234,7 +234,7 @@ export default function UserManualList() {
                   </div>
 
                   {error && (
-                    <div className="w-full whitespace-nowrap text-sm sm:text-base font-bold bg-[#FCD5D5] text-red-500 border border-red-700 p-3 rounded-md mb-4">
+                    <div className="max-w-2xl whitespace-nowrap text-sm sm:text-base font-bold bg-[#FCD5D5] text-red-500 border border-red-700 p-3 rounded-md mb-4">
                       {t("invalidEmail", { email: email || "ddd" })}
                     </div>
                   )}
