@@ -67,7 +67,7 @@ export default function UserManualList() {
           {visibleManuals.map((manual) => (
             <div
               key={manual.id}
-              className="flex items-center justify-between py-5 border-b-[0.5px] border-[#00000080]"
+              className="flex items-center bg-white text-black justify-between py-5 border-b-[0.5px] border-[#00000080]"
             >
               <h2 className="text-2xl font-semibold text-black flex-1">
                 {manual.title}

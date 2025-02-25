@@ -8,21 +8,40 @@ export default function LanguageSelector() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("en");
 
   const languages = [
     { code: "en", label: "English", region: "United States" },
     { code: "kr", label: "한국어", region: "대한민국" },
   ];
 
+  // Derive initial locale from the URL path
+  const initialLocale = (() => {
+    const segments = pathname.split("/");
+    const localeFromPath = segments[1];
+    return languages.some((lang) => lang.code === localeFromPath)
+      ? localeFromPath
+      : "en";
+  })();
+
+  const [selected, setSelected] = useState(initialLocale);
   const currentLanguage = languages.find((lang) => lang.code === selected);
 
   const handleLanguageChange = (code: string) => {
     setSelected(code);
     setIsOpen(false);
-    // Assuming the locale is the first segment of the URL, update it:
+
     const segments = pathname.split("/");
-    segments[1] = code;
+    const localeCodes = languages.map((lang) => lang.code);
+
+    // Check if the first segment is a valid locale
+    if (segments[1] && localeCodes.includes(segments[1])) {
+      // Replace existing locale
+      segments[1] = code;
+    } else {
+      // Prepend new locale
+      segments.splice(1, 0, code);
+    }
+
     const newPath = segments.join("/");
     router.push(newPath);
   };

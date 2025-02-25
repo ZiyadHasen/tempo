@@ -1,13 +1,13 @@
 {
   "Login": {
-    "title": "Admin Login",
+    "title": "Overall default settings",
     "subtitle": "Select settings and agree to the terms to continue",
     "description": "This website is for medical professionals only.",
     "languageLabel": "Language",
     "termsLink": "Terms of Service",
     "termsLabel": "I agree to the",
     "termsError": "Please agree to the Terms of Service",
-    "loginButton": "Login",
+    "loginButton": "Continue",
     "modalTitle": "Terms of Service",
     "modalContent": "elFU website provides instructions for use (IFU) and other related information about various products of ROKIT Healthcare medical devices. This website is exclusively intended for healthcare professionals. Warning: You are attempting to access a private website that is authorized for use only by ROKIT Healthcare and its certified distributors (hereafter referred to as the Company) worldwide. This site is provided solely for business purposes to healthcare professionals.\n\nThe Company strictly prohibits any unauthorized access, use, or modification of the website and its content, as well as any attempt to do so. Unauthorized users and/or those who engage in unauthorized use may face criminal and/or civil penalties under relevant domestic and international laws. Use of this website may be monitored and recorded for management and security reasons. If monitoring and/or recording reveal evidence suggesting the possibility of criminal activity, the Company may provide such monitored evidence to law enforcement officials. Additionally, by using this website, you agree to additional terms found in the 'Terms of Use / Legal Notice,' which can be accessed via the 'Legal Notice' link at the bottom right of the website page.ROKIT Healthcare, Inc. 2018 (except where otherwise noted). All rights reserved.",
     "modalClose": "Close"

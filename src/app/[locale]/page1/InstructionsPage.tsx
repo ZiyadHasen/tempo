@@ -25,7 +25,7 @@ export default function InstructionsPage1() {
   };
 
   return (
-    <div className="mx-4 md:mx-24 p-4 md:p-6 font-sans">
+    <div className="mx-4 md:mx-24 p-4 md:p-6 bg-white">
       <h1 className="text-3xl md:text-5xl font-bold text-center my-6 md:mb-[8rem] md:mt-[6rem]">
         {t("pageTitle")}
       </h1>

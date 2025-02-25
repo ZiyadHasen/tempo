@@ -4,7 +4,7 @@ import InstructionsPage1 from "./InstructionsPage";
 
 const page = () => {
   return (
-    <section className="">
+    <section className="bg-white text-black">
       <TopNav />
       <InstructionsPage1 />
       <Footer />
