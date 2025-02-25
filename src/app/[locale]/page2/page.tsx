@@ -9,7 +9,7 @@ const Page = () => {
   const t = useTranslations("PrivacyPolicy");
 
   return (
-    <section>
+    <section className="bg-white text-black">
       <TopNav />
 
       <div className="mx-4 bg-white text-black md:mx-24 p-4 md:p-6 font-sans">
