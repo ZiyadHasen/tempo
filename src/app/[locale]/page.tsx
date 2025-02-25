@@ -23,41 +23,44 @@ export default function LoginPage() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Language Options
-  const languageOptions = [
-    { value: "kr", label: "KR-한국어" },
-    { value: "en", label: "EN-English" },
+  const languages = [
+    { code: "en", label: "English", region: "United States" },
+    { code: "kr", label: "한국어", region: "대한민국" },
   ];
 
-  // Derive initial locale from URL
+  // Derive initial locale from the URL path
   const initialLocale = (() => {
     const segments = pathname.split("/");
     const localeFromPath = segments[1];
-    const localeCodes = languageOptions.map((opt) => opt.value);
-    return segments[1] && localeCodes.includes(localeFromPath)
+    return languages.some((lang) => lang.code === localeFromPath)
       ? localeFromPath
-      : "kr";
+      : "en";
   })();
 
-  const [selectedValue, setSelectedValue] = useState(initialLocale);
+  const [selected, setSelected] = useState(initialLocale);
+  const currentLanguage = languages.find((lang) => lang.code === selected);
+
   const [isOpen, setIsOpen] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
 
-  const handleSelect = (value: string) => {
-    setSelectedValue(value);
+  const handleLanguageChange = (code: string) => {
+    setSelected(code);
     setIsOpen(false);
 
     const segments = pathname.split("/");
-    const localeCodes = languageOptions.map((opt) => opt.value);
+    const localeCodes = languages.map((lang) => lang.code);
 
-    // Replace existing locale or prepend new locale
+    // Check if the first segment is a valid locale
     if (segments[1] && localeCodes.includes(segments[1])) {
-      segments[1] = value;
+      // Replace existing locale
+      segments[1] = code;
     } else {
-      segments.splice(1, 0, value);
+      // Prepend new locale
+      segments.splice(1, 0, code);
     }
+
     const newPath = segments.join("/");
     router.push(newPath);
   };
@@ -72,7 +75,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="bg-white text-black">
       <TopNav />
       <div className="flex items-center justify-center min-h-screen bg-white px-4">
         <div className="w-full max-w-xl bg-white p-8">
@@ -80,13 +83,13 @@ export default function LoginPage() {
             <Image src={logo} alt="Logo" width={65} height={65} priority />
           </header>
           <main>
-            <h1 className="text-4xl sm:text-5xl font-semibold my-4">
+            <h1 className="text-4xl whitespace-nowrap sm:text-5xl font-semibold my-4">
               {t("title")}
             </h1>
-            <h2 className="text-lg sm:text-xl font-medium mb-2">
+            <h2 className="text-lg whitespace-nowrap sm:text-xl font-medium mb-2">
               {t("subtitle")}
             </h2>
-            <h2 className="text-xl sm:text-2xl font-semibold mt-8 mb-6">
+            <h2 className="text-xl whitespace-nowrap sm:text-2xl font-semibold mt-8 mb-6">
               {t("description")}
             </h2>
             <form>
@@ -101,13 +104,7 @@ export default function LoginPage() {
                     className="w-full h-14 px-4 text-left bg-[#F5F5F5] border-[2px] border-[#000000] rounded-md flex items-center justify-between"
                     onClick={() => setIsOpen(!isOpen)}
                   >
-                    <span>
-                      {
-                        languageOptions.find(
-                          (opt) => opt.value === selectedValue
-                        )?.label
-                      }
-                    </span>
+                    <span>({currentLanguage?.region})</span>
                     <FaChevronDown
                       className={`h-8 w-8 text-[#000000] transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
@@ -116,14 +113,14 @@ export default function LoginPage() {
                   </button>
                   {isOpen && (
                     <div className="absolute w-full mt-1 bg-white border border-[#DDE2E6] rounded-md shadow-lg z-10">
-                      {languageOptions.map((option) => (
+                      {languages.map((language) => (
                         <button
-                          key={option.value}
+                          key={language.code}
                           type="button"
                           className="w-full px-4 py-2 text-left hover:bg-[#F8F9FA]"
-                          onClick={() => handleSelect(option.value)}
+                          onClick={() => handleLanguageChange(language.code)}
                         >
-                          {option.label}
+                          {language.label}
                         </button>
                       ))}
                     </div>
